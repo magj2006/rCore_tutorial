@@ -1,1 +1,1 @@
- cargo rustc -- -C link-arg=-nostartfiles
+ cargo rustc -- -C link-args="-e __start -static -nostartfiles"
