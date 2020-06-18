@@ -1,6 +1,9 @@
 global_asm!(include_str!("boot/entry64.asm"));
 
+
+#[allow(unused_imports)]
 use crate::io;
+#[allow(unused_imports)]
 use crate::sbi;
 
 #[no_mangle]
@@ -13,5 +16,6 @@ pub extern "C" fn rust_main() -> ! {
     println!("bootstacktop vaddr = 0x{:x}", bootstacktop as usize);
     println!("hello world!");
     panic!("you want to do nothing!");
+    #[allow(unreachable_code)]
     loop {}
 }
