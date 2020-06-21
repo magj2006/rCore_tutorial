@@ -4,7 +4,8 @@ global_asm!(include_str!("boot/entry64.asm"));
 pub extern "C" fn rust_main() -> ! {
     crate::interrupt::init();
     unsafe {
-        asm!("ebreak"::::"volatile");
+        #![feature(llvm_asm)]
+        llvm_asm!("ebreak"::::"volatile");
     }
     panic!("end of rust_main");
 }
